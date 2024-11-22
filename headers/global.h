@@ -4,7 +4,8 @@
 #include <stdint.h>
 #include "/home/jasperd/Documents/programming/embedded/device_headers/stm32f031x6.h"
 
-#define BUTTON_PIN (1)
+#define ROTARY_PIN_B (0)
+#define ROTARY_PIN_A (1)
 #define LED_PIN (3)
 
 extern volatile unsigned char led_on;

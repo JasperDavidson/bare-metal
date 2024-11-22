@@ -1,10 +1,10 @@
 #include "headers/nvic.h"
 
 void EXTI0_1_IRQ_handler(void) {
-    if (EXTI->PR & (1<<BUTTON_PIN)) {
-        // Clear the EXTI status flag and toggle the led_on variable
-        EXTI->PR |= (1<<BUTTON_PIN);
-        
-        led_on = !led_on;
+    // If the first rotary pin was already triggered (i.e. specific turn direction) turn the led on
+    if (GPIOB->IDR & (1<<ROTARY_PIN_B)) {
+        led_on = 1;
+    } else {
+        led_on = 0;
     }
 }
